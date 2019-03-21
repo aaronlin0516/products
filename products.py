@@ -13,3 +13,5 @@ while True:
 
 print(products)
 
+for p in products:
+	print(p)
