@@ -14,6 +14,7 @@ while True:
 	if name == 'q':
 		break
 	price = input('請輸入商品價格: ')
+	price = int(price)
 	#p = []
 	#p.append(name)
 	#p.append(price)
@@ -27,4 +28,4 @@ for p in products:   #印出小清單
 with open('products.csv', 'w', encoding = 'utf-8') as f:		#打開檔案寫入products.csv ","可以做分格區分
 	f.write('商品,價格\n')
 	for p in products:
-		f.write(p[0] + ',' + p[1] + '\n') 	#用+合併必須為字串
+		f.write(p[0] + ',' + str(p[1]) + '\n') 	#用+合併必須為字串
