@@ -1,13 +1,18 @@
 #記帳程式專案(+二維清單)
+import os #operating system 作業系統
 #讀取檔案
 products = []
-with open('products.csv', 'r', encoding = 'utf-8') as f:
-	for line in f:
-		if '商品,價格' in line:
-			continue							#如果符合"商品,價格"就跳到下一迴，以下條件跳過，繼續下一迴處理
-		name, price = line.strip().split(',')	#先把多餘的符號清除(strip)再用','切割(split)
-		products.append([name,price])
-print(products)
+if os.path.isfile('products.csv'): #isfile檢查檔案
+	print('yeah!找到檔案了!')
+	with open('products.csv', 'r', encoding = 'utf-8') as f:
+		for line in f:
+			if '商品,價格' in line:
+				continue							#如果符合"商品,價格"就跳到下一迴，以下條件跳過，繼續下一迴處理
+			name, price = line.strip().split(',')	#先把多餘的符號清除(strip)再用','切割(split)
+			products.append([name,price])
+	print(products)
+else:
+	print('找不到檔案.....')
 
 while True:
 	name = input('請輸入商品名稱: ')
